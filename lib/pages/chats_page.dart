@@ -52,7 +52,7 @@ class ChatsPage extends TabPage {
           lastMessageTime: DateTime.parse('2024-02-23'),
           chatType: ChatType.group,
           sender: 'شادي',
-          lastMessageText: 'منال دقسي',
+          lastMessageText: 'محمد محمد',
           pinned: true,
           unreadCount: 7,
         )),
@@ -63,8 +63,7 @@ class ChatsPage extends TabPage {
           lastMessageTime: DateTime.parse('2024-02-23'),
           chatType: ChatType.group,
           sender: 'سامي',
-          lastMessageText:
-              'كمال خربطلي\n1041\$الف وواحد واربعون دولار\nادلب المدينه',
+          lastMessageText: 'محمد حمد\n41\$واحد واربعون دولار\nادلب المدينه',
           pinned: true,
         )),
       ],
@@ -99,12 +98,13 @@ class ChatRow extends StatelessWidget {
           chat.sender != null ? Text('${chat.sender}: ') : const SizedBox(),
           mediaIcon[chat.mediaType]!,
           SizedBox(width: chat.mediaType == MediaType.text ? 0 : 5),
-          Text(
-            chat.lastMessageText.replaceAll('\n', ' '),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.start,
-            style: TextStyle(backgroundColor: blue),
+          Flexible(
+            child: Text(
+              chat.lastMessageText.replaceAll('\n', ' '),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.start,
+            ),
           ),
         ]),
         trailing: Column(
